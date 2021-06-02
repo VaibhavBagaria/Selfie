@@ -1,9 +1,8 @@
 SpeechRecognition = window.webkitSpeechRecognition
 recognition = new SpeechRecognition()
-function start() {
+
     document.getElementById("text_box").value = ""
     recognition.start()
-}
 
 recognition.onresult = function (event) {
     console.log(event);
@@ -48,4 +47,8 @@ function Save() {
     image=document.getElementById("capture_image").src
     link.href=image
     link.click()
+    window.onload=timedRefresh(5000)
 }
+
+function timedRefresh(timeoutPeriod) 
+{ setTimeout("location.reload(true);",timeoutPeriod); }
